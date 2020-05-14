@@ -8,15 +8,15 @@
     <div class="form-group">
         <label for="pagesUrl">URL</label>
         <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">/</span>
+            <div class="input-group-prepend">
+                <span class="input-group-text">/</span>
+            </div>
+            <input name="url" id="pagesUrl" class="form-control" type="text" placeholder="Url amigável, deixar em branco para página inicial..." value="<?= $data['page']['url'] ?>">
         </div>
-        <input name="url" id="pagesUrl" class="form-control" type="text" placeholder="Url amigável, deixar em branco para página inicial..." value="<?= $data['page']['url'] ?>">
-    </div>
     </div>
 
     <div class="form-group">
-        <input name="body" id="pagesBody" type="hidden" value="<?= $data['page']['body'] ?>">
+        <input name="body" id="pagesBody" type="hidden" value='<?= $data['page']['body'] ?>'>
         <trix-editor input="pagesBody"></trix-editor>
     </div>
 
@@ -25,3 +25,6 @@
 
 <hr>
 <a class="btn btn-secondary" href="/admin/pages/<?= $data['page']['id'] ?>">Voltar</a>
+<pre>
+    <?= var_dump($data['page']['body']) ?>
+</pre>

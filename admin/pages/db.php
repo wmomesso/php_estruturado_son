@@ -5,8 +5,8 @@ function pages_get_data($redirectOnError){
     $url = filter_input(INPUT_POST, 'url');
     $body = filter_input(INPUT_POST, 'body');
 
-    if(is_null($title) or is_null($url)){
-        flash('Informe os campos titulo e url', 'danger');
+    if(!$title){
+        flash('Informe o campo de titulo', 'danger');
         header('location: ' . $redirectOnError);
         die;
     }
@@ -30,7 +30,7 @@ $pages_one = function($id) use ($conn){
 };
 
 $pages_create = function() use ($conn){
-    //criar páginas
+    //criar páginas    
     $data = pages_get_data('/admin/pages/create');
     $sql = 'INSERT INTO pages (title, body, url, updated, created) VALUES(?, ?, ?, NOW(), NOW())';
     $stmt = $conn->prepare($sql);

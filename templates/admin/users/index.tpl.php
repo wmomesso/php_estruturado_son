@@ -1,5 +1,4 @@
 <h3 class="mb-5">Administração de usuários</h3>
-
 <table class="table table-hover">
     <thead>
         <tr>
@@ -9,11 +8,13 @@
         </tr>
     </thead>
     <tbody>
+    <?php foreach($data['users'] as $user) : ?>
         <tr>
-            <td>1</td>
-            <td>Wagner</td>
-            <td><a href="/admin/users/1" class="btn btn-primary btn-sm">Ver</a></td>
+            <td><?= $user['id'] ?></td>
+            <td><?= $user['email'] ?></td>
+            <td><a href="/admin/users/<?= $user['id'] ?>" class="btn btn-primary btn-sm">Ver</a></td>
         </tr>
+    <?php endforeach; ?>
     </tbody>
 </table>
 
